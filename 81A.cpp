@@ -16,25 +16,18 @@ int32_t main() {
     return 0;
 }
 
-void solve(){
+void solve() {
+    string str; cin >> str;
+    vector<char> s; 
 
-    string str; cin >> str; 
-    stack<char>s;
-
-    for (char ss : str){
-        if(s.empty()){
-            s.push(ss);
-        }else if(s.top()==ss){
-            s.pop();
-        }else{
-            s.push(ss);
+    for (char ss : str) {
+        if (!s.empty() && s.back() == ss) {
+            s.pop_back();
+        } else {
+            s.push_back(ss);
         }
     }
 
-    string ans = "";
-    while(!s.empty()){
-        ans = s.top()+ans;
-        s.pop();
-    }
-    cout << ans<<endl;
+    string ans(s.begin(), s.end());
+    cout << ans << endl;
 }
