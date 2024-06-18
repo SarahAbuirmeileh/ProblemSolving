@@ -19,11 +19,19 @@ int32_t main() {
 void solve(){
 
     int n; cin >> n;
-    vector<int>v(n);
+    map<int, int>m;
 
-    for (int i=0; i<n; i++) {
-        cin >> v[i]; 
+    int x;
+    for (int i=0; i<n; i++){
+        cin >> x;
+        m[x]++;
     }
-    sort(v.begin(),v.end());
     
+    for (auto mm : m){
+        if (mm.second >= 3){
+            cout << mm.first << endl;
+            return;
+        }
+    }
+    cout << -1 << endl;
 }
