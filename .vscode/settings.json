@@ -66,6 +66,8 @@
         "span": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "any": "cpp"
+        "any": "cpp",
+        "18.C": "cpp",
+        "complex": "cpp"
     }
 }
