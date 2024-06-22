@@ -13,7 +13,7 @@ void solve();
 int32_t main() {
     tee
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
        solve();
     }
@@ -23,11 +23,13 @@ int32_t main() {
 void solve(){
 
     int n; cin >> n;
-    vector<int>v(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> v[i]; 
-    }
-    sort(v.begin(), v.end());
+    string str; cin >> str;
     
+    int ans = 0;
+    for (int i = 0; i < n-1; i++) {
+        if(str[i]==str[i+1]){
+            ans++;
+        }
+    }
+    cout << ans << endl;    
 }
