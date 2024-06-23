@@ -24,8 +24,10 @@ bool BS(vector<int> &v, int can, vector<int> &v2, int k){
     int needed = 0;
     for(int i =0; i<v.size(); i++){
         needed += max((can * v[i]) - v2[i], 0ll);
+        cout << needed << " ";
         if(needed > k)break;
     }
+    cout << endl << endl;
     return needed <= k;
 }
 
@@ -33,20 +35,25 @@ void solve(){
 
     int n, k; 
     cin >> n >> k;
-    vector<int>v(n), v2(n);
+    vector<int>v(n), v2(n), can(n);
 
     for (int i = 0; i < n; i++) {
         cin >> v[i]; 
     }
     for (int i = 0; i < n; i++) {
         cin >> v2[i]; 
+        can[i] = v2[i]/v[i];
     }
+    sort(can.rbegin(), can.rend());
+    // for (int i = 0; i < n; i++) {
+    //     cout << can[i] << " "; 
+    // }cout << endl << endl;
 
-   int l = 0, r = 2e9, mid;
+   int l = 0, r = n- 1, mid;
    while(l<=r){
         mid = l + (r - l) /2;
-        if(BS(v, mid,v2,k)){
-            l = mid + 1;
+        if(BS(v, can[mid],v2,k)){
+            l = mid +1;
         }else{
             r = mid - 1;
         }
