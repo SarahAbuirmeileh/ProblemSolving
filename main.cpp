@@ -14,9 +14,10 @@ int32_t main() {
     tee
     int t = 1;
     cin >> t;
-    while (t--) {
-       solve();
+    for(int i = 1; i <= t; i++){
+        solve();
     }
+    
     return 0;
 }
 
