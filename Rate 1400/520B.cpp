@@ -30,7 +30,35 @@ void BFS (int n, int m ){
     
 
     while(!q.empty()){
+void BFS (int n, int m ){
+    queue<pair<int,int>>q;
+    map<int, int>mm;
 
+    q.push({n, 0});
+    mm[n]=0;
+    
+
+    while(!q.empty()){
+
+        pair<int, int> t = q.front();  q.pop();
+        if(t.first == m){
+            cout <<  t.second << endl;
+            return;
+        }
+
+        if(t.first < m){
+            if (mm.find(t.first*2) == mm.end()){ 
+                mm[t.first*2]=t.second+1;
+            }
+            q.push({t.first*2,  mm[t.first*2]});
+        }
+        
+        if(mm.find(t.first-1) == mm.end()){
+            mm[t.first-1]=t.second+1;
+        }
+        q.push({t.first-1, mm[t.first-1]});
+    }
+}
         pair<int, int> t = q.front();  q.pop();
         if(t.first == m){
             cout <<  t.second << endl;
