@@ -1,62 +1,69 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define endl "\n"
+#define endl "\n" 
 #define int long long
 #define tee { ios :: sync_with_stdio(false); cin.tie(0); cout.tie(0); }
+#define not_less_than(v, x) lower_bound(v.begin(), v. end(), x)                   // x >=
+#define not_more_than(v, x) lower_bound(v.rbegin(), v.rend(), x, greater<int>())  // x <=
+#define more_than(v, x) upper_bound (v.begin(), v.end(), x)                       // x <
+#define less_than(v, x)upper_bound (v. rbegin(), v.rend(), x, greater<int>())     // x >
 
 void solve();
 int32_t main() {
-    tee;
+    tee
     int t = 1;
     // cin >> t;
-    for(int i = 1; i <= t; i++){
-        solve();
+    while (t--) {
+       solve();
     }
     return 0;
 }
 
-int BFS(int x0, int y0, int x1, int y1, set<pair<int ,int>>&cells) {
-    queue<pair<int, int>> q;
-    q.push({x0, y0});
+void BFS (int s, vector<vector<int>>&g, vector<bool>&v ){
+    queue<int>q;
+    q.push(s);
+    v[s]=true;
 
-    map<pair<int, int>, int>m;
-    m[{x0, y0}]=0;
-
-    vector<pair<int, int>> dis = { {0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {-1, -1}, {1, -1}, {-1, 1} };
-
-    while (!q.empty()) {
-        pair<int, int> t = q.front(); q.pop();
-        int x = t.first, y = t.second;
-
-        if (x == x1 && y == y1) {
-            return m[{x, y}];
-        }
-        
-        for (auto d : dis) {
-            int nx = x + d.first, ny = y + d.second;
-            
-            if (!m.count({nx, ny}) && cells.count({nx, ny})) {
-                q.push({nx, ny});
-                m[{nx, ny}] = m[{x, y}]+1;
+    while(!q.empty()){
+        int t = q.front(); 
+        q.pop();
+        for(int c : g[t]){
+            if(!v[c]){
+                q.push(c);
+                v[c] = true;
             }
         }
     }
-    return -1; 
 }
 
-void solve() {
-    int x0, y0, x1, y1; cin >> x0 >> y0 >> x1 >> y1;
+void solve(){
 
-    int n; cin >> n;
-    int r, a, b;
-    set<pair<int ,int>>cells;
-    for(int i=0; i<n; i++){
-        cin >> r >> a >> b;
-        for(int j = a; j<= b; j++){
-            cells.insert({r, j});
+    int n, e; 
+    cin >> n >> e;
+    vector<vector<int>>g (n+1,vector<int>({}));
+
+    int u, v;
+    for (int i = 1; i <= e; i++) {
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+
+    vector<bool>vis(n+1, false);
+    BFS(1, g, vis);
+
+    for (int i=1; i<=n; i++){
+        if(!vis[i]){
+            cout << "NO" << endl;
+            return;
         }
     }
-    cout << BFS(x0, y0, x1, y1, cells) << endl;
+    if(n==e){
+        cout << "FHTAGN!" << endl;
+    }else{
+        cout << "NO" << endl;
+    }
+    
 }
 
