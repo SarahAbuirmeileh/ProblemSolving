@@ -28,16 +28,16 @@ bool isLeaf(int u, vector<vector<int>>& g) {
 }
 
 // in grid sys
-// a cell with exactly one unvisited neighboring cell
-bool isLeaf(int x, int y, int n, int m, char arr[n][m], bool vis[n][m]) {
-    int count = 0;
-    for (int i = 0; i < 4; i++) {
-        int nx = x + dx[i], ny = y + dy[i];
-        if (isValid(nx, ny, m, n, arr) && !vis[nx][ny]) {
-            count++;
-        }
-    }
-    return count == 1;
+bool isLeaf(int x, int y, int n, int m, vector<vector<char>>& g, vector<vector<bool>>& vis) {
+	for (int i = 0; i < 4; i++) {
+		int nx = x + dx[i], ny = y + dy[i];
+		if (isValid(nx, ny, n, m, g)) {
+            if (!vis[nx][ny]) {
+                return 0;
+            }
+		}
+	}
+	return 1;
 }
 
 void DFS(int s, vector<vector<int>>&g, vector<bool>&v ){
