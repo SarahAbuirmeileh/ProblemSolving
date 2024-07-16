@@ -14,7 +14,7 @@ void BFS(vector<pair<int, int>>& burn, vector<vector<bool>>& vis, int n, int m, 
     }
 
     vector<pair<int, int>> dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    int ansLvl = 1;
+    int ansLvl = 0;
     
     while (!q.empty()) {
         int lvl = q.front().first;
@@ -50,13 +50,13 @@ void solve() {
     vector<pair<int, int>> burn(k);
     vector<vector<bool>> vis(n + 1, vector<bool>(m + 1, false));
 
+    int u, v;
     for (int i = 0; i < k; ++i) {
-        int u, v;
         cin >> u >> v;
         burn[i] = {u, v};
     }
     
-    pair<int, int> ans;
+    pair<int, int> ans = {u, v};
     BFS(burn, vis, n, m, ans);
     
     cout << ans.first << " " << ans.second << endl;
@@ -66,6 +66,12 @@ int32_t main() {
     tee;
     int t = 1;
     // cin >> t; 
+  
+    #ifndef ONLINE_JUDGE 
+        freopen("input.txt", "r", stdin); 
+        freopen("output.txt", "w", stdout); 
+    #endif 
+  
     while (t--) {
         solve();
     }

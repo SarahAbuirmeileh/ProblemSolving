@@ -15,6 +15,10 @@ const int dy[] = { 1,-1,0,0 };
 void solve();
 int32_t main() {
     tee
+    // #ifndef ONLINE_JUDGE 
+    //     freopen("input.txt", "r", stdin); 
+    //     freopen("output.txt", "w", stdout); 
+    // #endif 
     int t = 1;
     cin >> t;
     for(int i = 1; i <= t; i++){
