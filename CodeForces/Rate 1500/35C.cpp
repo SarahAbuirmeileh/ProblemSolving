@@ -67,10 +67,8 @@ int32_t main() {
     int t = 1;
     // cin >> t; 
   
-    #ifndef ONLINE_JUDGE 
-        freopen("input.txt", "r", stdin); 
-        freopen("output.txt", "w", stdout); 
-    #endif 
+    freopen("input.txt", "r", stdin); 
+    freopen("output.txt", "w", stdout); 
   
     while (t--) {
         solve();
