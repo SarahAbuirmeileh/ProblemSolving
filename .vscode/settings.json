@@ -69,7 +69,11 @@
         "any": "cpp",
         "18.C": "cpp",
         "complex": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "optional": "cpp",
+        "shared_mutex": "cpp",
+        "syncstream": "cpp",
+        "bitset": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
