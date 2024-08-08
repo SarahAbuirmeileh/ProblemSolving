@@ -73,7 +73,21 @@
         "optional": "cpp",
         "shared_mutex": "cpp",
         "syncstream": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "barrier": "cpp",
+        "cfenv": "cpp",
+        "charconv": "cpp",
+        "codecvt": "cpp",
+        "coroutine": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "cstring": "cpp",
+        "cuchar": "cpp",
+        "source_location": "cpp",
+        "iomanip": "cpp",
+        "latch": "cpp",
+        "scoped_allocator": "cpp",
+        "typeindex": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
