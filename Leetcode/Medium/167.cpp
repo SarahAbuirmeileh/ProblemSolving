@@ -14,3 +14,37 @@ public:
         return {};
     }
 };
+
+function distinct(str,k){
+    var L=0;
+    var R=0;
+    var dict={};
+    var length=0;
+    var maxlength=0
+    while(R<str.length){
+        if(str[R] in dict){
+            dict[str[R]]++;
+            length++;
+        }
+        else{
+            dict[str[R]]=1;
+            length++;
+        }
+        
+        while(Object.keys(dict).length>k){
+            dict[str[L]]--;
+            if(dict[str[L]]==0){
+                delete dict[str[L]];
+            }
+            length--;
+            L++;
+        }
+        if(Object.keys(dict).length==k){
+            if(length>maxlength){
+                maxlength=length;
+            }
+        }
+        R++;
+    }
+    return maxlength;
+}
