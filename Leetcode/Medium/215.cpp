@@ -5,7 +5,6 @@ public:
         for(int n : nums){
             pq.push(n);
         }
-        int ans;
         while(--k){
            pq.pop();
         }
