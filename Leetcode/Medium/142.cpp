@@ -1,3 +1,6 @@
+// https://algo.monster/liteproblems/142 
+// Or using set to store the occurrences (memory addresses)
+
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
