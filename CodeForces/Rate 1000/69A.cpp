@@ -31,51 +31,20 @@ int32_t main() {
 void solve(){
 
     int n; cin >> n;
+    
+    int x, y, z;
+    int x_sum = 0, y_sum = 0, z_sum = 0;
 
-    int pos = 0, neg = 0;
-    set<int> positive, negative , zero;
-
-    int x;
     for (int i = 0; i < n; i++) {
-        cin >> x; 
-        if(x == 0){
-            zero.insert(x);
-        }else if (x > 0){
-            pos++;
-            positive.insert(x);
-        }else{
-            neg++;
-            negative.insert(x);
-        }
+        cin >> x >> y >> z;
+        x_sum += x;
+        y_sum += y;
+        z_sum += z; 
+    }
+    if(x_sum == 0 && y_sum == 0 && z_sum ==0){
+        cout << "YES" << endl;
+    }else{
+        cout << "NO" << endl;
     }
     
-    if(pos == 0){
-        int counter = 2;
-        auto neg_it = negative.begin();
-        while(counter--){
-            positive.insert(*neg_it);
-            neg_it = negative.erase(neg_it);
-        }
-    }
-
-    if(neg%2 == 0){
-        auto neg_it = negative.begin();
-        zero.insert(*neg_it);
-        negative.erase(neg_it);
-    }
-
-    cout << negative.size() << " ";
-    for(auto num : negative){
-        cout << num << " "; 
-    }
-
-    cout << endl  << positive.size() << " ";
-    for(auto num : positive){
-        cout << num << " "; 
-    }
-
-    cout << endl << zero.size() << " ";
-    for(auto num : zero){
-        cout << num << " "; 
-    }
 }
