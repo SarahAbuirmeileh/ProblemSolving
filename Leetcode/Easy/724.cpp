@@ -5,7 +5,6 @@ public:
         vector<int>sum (size );
         for(int i = 1; i < size; i++){
             sum[i] = sum[i - 1] + nums[i-1]; 
-            cout << sum[i] << " ";
         }
 
         for(int i = 1; i < size; i++){
