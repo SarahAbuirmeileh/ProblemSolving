@@ -8,3 +8,10 @@ My CodeForces Account [Sarah_Abu_Irmeileh](https://codeforces.com/profile/Sarah_
 My Leetcode Account [SarahAbuirmeileh](https://leetcode.com/u/SarahAbuirmeileh/)
 
 Let's have some challenges together !! 🔥
+
+
+## Author
+
+**Sarah Abu Irmeileh**
+- GitHub: [@SarahAbuirmeileh](https://github.com/SarahAbuirmeileh)
+- LinkedIn: [Sarah Abu Irmeileh](https://www.linkedin.com/in/sarah-abu-irmeileh)
